@@ -16,7 +16,7 @@
 # Use this script to install KenLM, OpenSeq2Seq decoder, Flashlight decoder
 shopt -s expand_aliases
 
-NEMO_PATH=../../../  # Path to NeMo folder: /workspace/nemo if you use NeMo/Dockerfile
+NEMO_PATH=/home/phoenix/Desktop/Test/NeMo  # Path to NeMo folder: /workspace/nemo if you use NeMo/Dockerfile
 if [ "$#" -eq 1 ]; then
   NEMO_PATH=$1
 fi
@@ -38,7 +38,7 @@ else
   alias b2install='sudo ./b2'
 fi
 
-aptupdate && apt-get upgrade -y && apt-get install -y swig liblzma-dev && rm -rf /var/lib/apt/lists/* # liblzma needed for flashlight decoder
+sudo aptupdate && sudo apt-get upgrade -y && sudo apt-get install -y swig liblzma-dev && rm -rf /var/lib/apt/lists/* # liblzma needed for flashlight decoder
 
 # install Boost package for KenLM
 wget https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.bz2 --no-check-certificate && tar --bzip2 -xf $NEMO_PATH/boost_1_80_0.tar.bz2 && cd boost_1_80_0 && ./bootstrap.sh && b2install --layout=tagged link=static,shared threading=multi,single install -j4 && cd .. || echo FAILURE
@@ -56,7 +56,7 @@ cp $NEMO_PATH/scripts/installers/setup_os2s_decoders.py ./setup.py
 ./setup.sh
 
 # install KenLM
-cd $NEMO_PATH/decoders/kenlm/build && cmake -DKENLM_MAX_ORDER=$KENLM_MAX_ORDER .. && make -j2
+cd $NEMO_PATH/decoders/kenlm/build && sudo cmake -DKENLM_MAX_ORDER=$KENLM_MAX_ORDER .. && sudo make -j2
 cd $NEMO_PATH/decoders/kenlm
 python setup.py install --max_order=$KENLM_MAX_ORDER
 export KENLM_LIB=$NEMO_PATH/decoders/kenlm/build/bin
