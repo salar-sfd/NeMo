@@ -16,7 +16,7 @@
 # Use this script to install KenLM, OpenSeq2Seq decoder, Flashlight decoder
 shopt -s expand_aliases
 
-NEMO_PATH=/workspace/nemo  # Path to NeMo folder: /workspace/nemo if you use NeMo/Dockerfile
+NEMO_PATH=../../../  # Path to NeMo folder: /workspace/nemo if you use NeMo/Dockerfile
 if [ "$#" -eq 1 ]; then
   NEMO_PATH=$1
 fi
@@ -50,6 +50,7 @@ git checkout ctc-decoders
 cd ..
 mv OpenSeq2Seq/decoders $NEMO_PATH/
 rm -rf OpenSeq2Seq
+sudo chown $(whoami):$(whoami) $NEMO_PATH/decoders
 cd $NEMO_PATH/decoders
 cp $NEMO_PATH/scripts/installers/setup_os2s_decoders.py ./setup.py
 ./setup.sh
