@@ -17,7 +17,7 @@
 shopt -s expand_aliases
 echo "Script is located in: $(dirname "$(realpath "$0")")"
 
-NEMO_PATH=./../../..  # Path to NeMo folder: /workspace/nemo if you use NeMo/Dockerfile
+NEMO_PATH=/tmp/pip-req-build-e0_1v5kj/NeMo  # Path to NeMo folder: /workspace/nemo if you use NeMo/Dockerfile
 if [ "$#" -eq 1 ]; then
   NEMO_PATH=$1
 fi
