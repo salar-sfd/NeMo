@@ -15,6 +15,7 @@
 
 # Use this script to install KenLM, OpenSeq2Seq decoder, Flashlight decoder
 shopt -s expand_aliases
+echo "Script is located in: $(dirname "$(realpath "$0")")"
 
 NEMO_PATH=./../../..  # Path to NeMo folder: /workspace/nemo if you use NeMo/Dockerfile
 if [ "$#" -eq 1 ]; then
@@ -29,6 +30,7 @@ else
   exit 1
 fi
 cd $NEMO_PATH
+echo "Script is located in: $(dirname "$(realpath "$0")")"
 
 if [ $(id -u) -eq 0 ]; then
   alias aptupdate='apt-get update'
