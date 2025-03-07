@@ -30,7 +30,7 @@ else
   exit 1
 fi
 cd $NEMO_PATH
-echo "Script is located in: $(dirname "$(realpath "$0")")"
+echo "Now in: $(pwd)"
 
 if [ $(id -u) -eq 0 ]; then
   alias aptupdate='apt-get update'
