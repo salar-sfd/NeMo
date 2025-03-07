@@ -41,7 +41,7 @@ fi
 sudo aptupdate && sudo apt-get upgrade -y && sudo apt-get install -y swig liblzma-dev && rm -rf /var/lib/apt/lists/* # liblzma needed for flashlight decoder
 
 # install Boost package for KenLM
-wget https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.bz2 --no-check-certificate && tar --bzip2 -xf $NEMO_PATH/boost_1_80_0.tar.bz2 && cd boost_1_80_0 && ./bootstrap.sh && b2install --layout=tagged link=static,shared threading=multi,single install -j4 && cd .. || echo FAILURE
+wget https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.bz2 --no-check-certificate && sudo tar --bzip2 -xf $NEMO_PATH/boost_1_80_0.tar.bz2 && cd boost_1_80_0 && ./bootstrap.sh && b2install --layout=tagged link=static,shared threading=multi,single install -j4 && cd .. || echo FAILURE
 export BOOST_ROOT=$NEMO_PATH/boost_1_80_0
 
 sudo git clone https://github.com/NVIDIA/OpenSeq2Seq
@@ -49,7 +49,7 @@ cd OpenSeq2Seq
 sudo git checkout ctc-decoders
 cd ..
 sudo mv OpenSeq2Seq/decoders $NEMO_PATH/
-rm -rf OpenSeq2Seq
+sudo rm -rf OpenSeq2Seq
 sudo chown $(whoami):$(whoami) $NEMO_PATH/decoders
 cd $NEMO_PATH/decoders
 sudo cp $NEMO_PATH/scripts/installers/setup_os2s_decoders.py ./setup.py
