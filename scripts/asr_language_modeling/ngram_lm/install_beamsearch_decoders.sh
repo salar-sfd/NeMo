@@ -21,7 +21,7 @@ shopt -s expand_aliases
 # if [ "$#" -eq 1 ]; then
 #   NEMO_PATH=$1
 # fi
-# KENLM_MAX_ORDER=10 # Maximum order of KenLM model, also specified in the setup_os2s_decoders.py
+KENLM_MAX_ORDER=10 # Maximum order of KenLM model, also specified in the setup_os2s_decoders.py
 
 # if [ -d "$NEMO_PATH" ]; then
 #   echo "The folder '$NEMO_PATH' exists."
