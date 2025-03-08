@@ -29,6 +29,8 @@ shopt -s expand_aliases
 #   echo "Error: The folder '$NEMO_PATH' does not exist. Specify it as a first command line positional argument!"
 #   exit 1
 # fi
+echo "Script in: $(pwd)"
+
 cd ..
 cd ..
 cd ..
