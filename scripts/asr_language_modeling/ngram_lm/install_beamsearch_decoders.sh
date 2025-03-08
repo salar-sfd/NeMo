@@ -52,7 +52,7 @@ sudo git clone https://github.com/NVIDIA/OpenSeq2Seq
 cd OpenSeq2Seq
 sudo git checkout ctc-decoders
 cd ..
-sudo mv -fT OpenSeq2Seq/decoders $NEMO_PATH/
+sudo mv OpenSeq2Seq/decoders $NEMO_PATH/
 sudo rm -rf OpenSeq2Seq
 sudo chown $(whoami):$(whoami) $NEMO_PATH/decoders
 cd $NEMO_PATH/decoders
