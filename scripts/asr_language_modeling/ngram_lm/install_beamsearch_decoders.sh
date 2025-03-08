@@ -15,21 +15,25 @@
 
 # Use this script to install KenLM, OpenSeq2Seq decoder, Flashlight decoder
 shopt -s expand_aliases
-echo "Script is located in: $(dirname "$(realpath "$0")")"
+# echo "Script is located in: $(dirname "$(realpath "$0")")"
 
-NEMO_PATH=/tmp/pip-req-build-e0_1v5kj/NeMo  # Path to NeMo folder: /workspace/nemo if you use NeMo/Dockerfile
-if [ "$#" -eq 1 ]; then
-  NEMO_PATH=$1
-fi
-KENLM_MAX_ORDER=10 # Maximum order of KenLM model, also specified in the setup_os2s_decoders.py
+# NEMO_PATH=/tmp/pip-req-build-e0_1v5kj/NeMo  # Path to NeMo folder: /workspace/nemo if you use NeMo/Dockerfile
+# if [ "$#" -eq 1 ]; then
+#   NEMO_PATH=$1
+# fi
+# KENLM_MAX_ORDER=10 # Maximum order of KenLM model, also specified in the setup_os2s_decoders.py
 
-if [ -d "$NEMO_PATH" ]; then
-  echo "The folder '$NEMO_PATH' exists."
-else
-  echo "Error: The folder '$NEMO_PATH' does not exist. Specify it as a first command line positional argument!"
-  exit 1
-fi
-cd $NEMO_PATH
+# if [ -d "$NEMO_PATH" ]; then
+#   echo "The folder '$NEMO_PATH' exists."
+# else
+#   echo "Error: The folder '$NEMO_PATH' does not exist. Specify it as a first command line positional argument!"
+#   exit 1
+# fi
+cd ..
+cd ..
+cd ..
+NEMO_PATH=$(pwd)
+# cd $NEMO_PATH
 echo "Now in: $(pwd)"
 
 if [ $(id -u) -eq 0 ]; then
