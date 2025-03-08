@@ -30,12 +30,8 @@ shopt -s expand_aliases
 #   exit 1
 # fi
 echo "Script in: $(pwd)"
-
-cd ..
-cd ..
-cd ..
 NEMO_PATH=$(pwd)
-# cd $NEMO_PATH
+cd $NEMO_PATH
 echo "Now in: $(pwd)"
 
 if [ $(id -u) -eq 0 ]; then
