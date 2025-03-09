@@ -45,6 +45,7 @@ fi
 sudo apt install -y libstdc++6
 sudo apt install -y cmake
 sudo apt install -y libboost-all-dev
+sudo apt install -y ffmpeg
 sudo aptupdate && sudo apt-get upgrade -y && sudo apt-get install -y swig liblzma-dev && rm -rf /var/lib/apt/lists/* # liblzma needed for flashlight decoder
 
 # install Boost package for KenLM
